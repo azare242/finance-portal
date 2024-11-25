@@ -30,10 +30,10 @@ import ReactCountryFlag from "react-country-flag"
 const CountryCodeSelect: React.FC<{ currentState?: { code: number, name: string, flag: string }, onChange: any }> = ({ currentState, onChange }) => {
 
     const countries = constractData()
-    const onSelect = (index: number) => {
-        onChange(countries.find((_, idx: number) => index === idx))
-    }
     const [searchResults, setSearchResults] = useState(countries)
+    const onSelect = (index: number) => {
+        onChange(searchResults.find((_, idx: number) => index === idx))
+    }
     const [search, setSearch] = useState<string>("")
     useEffect(() => {
         if (search === "") setSearchResults(countries)

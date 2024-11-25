@@ -22,6 +22,7 @@ import { SiApple, SiBinance, SiGoogle } from 'react-icons/si'
 import { 
     // MessageCircleWarningIcon,
      OctagonAlert, QrCode, 
+     X, 
      XCircle} from 'lucide-react'
 // import { useForm } from 'react-hook-form'
 // import { zodResolver } from "@hookform/resolvers/zod"
@@ -77,12 +78,12 @@ const LoginForm = () => {
 
                             </div>
                             <div className={`flex flex-row items-center justify-center w-full relative`}> {/* Added relative here too */}
-                                <Input className='w-full'
+                                <Input className='w-full focus:border-yellow-400'
                                     onChange={e => { setInput(e.target.value); setError(null) }}
                                     value={input}
                                     placeholder='Email/Phone (without country code)' />
                                 {input !== "" && (
-                                    <XCircle className='absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer' onClick={() => setInput("")} />
+                                    <X size={16} className='absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-700 cursor-pointer' onClick={() => setInput("")} />
                                 )}
                             </div>
                         </div>
