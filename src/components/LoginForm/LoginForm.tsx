@@ -76,15 +76,17 @@ const LoginForm = () => {
                                 <CountryCodeSelect onChange={(d: { name: string, code: number, flag: string }) => setCountryState(d)} currentState={countryState ?? {name: "Iran", code: 98, flag: "IR"}} />
 
                             </div>
-                            <div className={`flex flex-row items-center justify-center w-full`}>
+                            <div className={`flex flex-row items-center justify-center w-full relative`}> {/* Added relative here too */}
                                 <Input className='w-full'
-                                 onChange={e => {setInput(e.target.value); setError(null)}}
-                                 value={input} 
-                                 placeholder='Email/Phone (without country code)' />
-                                 {input !== "" && <XCircle className='pl-2 text-gray-500 cursor-pointer' onClick={() => setInput("")} />}
+                                    onChange={e => { setInput(e.target.value); setError(null) }}
+                                    value={input}
+                                    placeholder='Email/Phone (without country code)' />
+                                {input !== "" && (
+                                    <XCircle className='absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer' onClick={() => setInput("")} />
+                                )}
                             </div>
                         </div>
-                                {!!error && <p className=' my-6 text-start gap-2 flex flex-row text-xs items-center justify-start text-red-500'><OctagonAlert size={16} strokeWidth={0.5} /> {error}</p>}
+                                {!!error && <p className=' relative z-10 my-6 text-start gap-2 flex flex-row text-xs items-center justify-start text-red-500'><OctagonAlert size={16} strokeWidth={0.5} /> {error}</p>}
                         <div>
                         </div>
                         <Button color="" className='mt-10 w-full transition-all hover:bg-yellow-400 bg-yellow-400 hover:opacity-75 text-black' onClick={onSubmit}>Next</Button>
