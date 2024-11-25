@@ -19,13 +19,15 @@ import { Input } from "@/components/ui/input"
 //     SelectValue,
 // } from "@/components/ui/select"
 import { SiApple, SiBinance, SiGoogle } from 'react-icons/si'
-import { MessageCircleWarningIcon, OctagonAlert, QrCode } from 'lucide-react'
+import { 
+    // MessageCircleWarningIcon,
+     OctagonAlert, QrCode } from 'lucide-react'
 // import { useForm } from 'react-hook-form'
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import loginSchema from '@/types/forms/loginForm'
-import { Form } from '../ui/form'
+// import { zodResolver } from "@hookform/resolvers/zod"
+// import { useForm } from "react-hook-form"
+// import { z } from "zod"
+// import loginSchema from '@/types/forms/loginForm'
+// import { Form } from '../ui/form'
 import CountryCodeSelect from '@/constants/CountryCodeSelect'
 import { isNumericOnly } from '@/lib/utils'
 
@@ -41,7 +43,7 @@ const LoginForm = () => {
     const [input, setInput] = useState<string>("")
 
     const [error, setError] = useState<string | null>(null)
-    const [countryState, setCountryState] = useState<{ name: string, code: number } | undefined>(undefined)
+    const [countryState, setCountryState] = useState<{ name: string, code: number, flag: string } | undefined>(undefined)
     const onSubmit = async () => {
 
         if (input === "") {
@@ -70,7 +72,7 @@ const LoginForm = () => {
                     <div className=" w-full">
                         <div className='flex flex-row items-center justify-center gap-4 w-full'>
                             <div className={input.length < 3 || !isNumericOnly(input) ? "hidden" : ""}>
-                                <CountryCodeSelect onChange={(d: { name: string, code: number }) => setCountryState(d)} currentState={countryState} />
+                                <CountryCodeSelect onChange={(d: { name: string, code: number, flag: string }) => setCountryState(d)} currentState={countryState ?? {name: "Iran", code: 98, flag: "IR"}} />
 
                             </div>
                             <div className={`flex flex-col items-start justify-start w-full`}>

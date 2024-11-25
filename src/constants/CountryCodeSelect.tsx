@@ -47,16 +47,16 @@ const CountryCodeSelect: React.FC<{ currentState?: { code: number, name: string,
             <AlertDialog>
                 <AlertDialogTrigger>
                     {/* <Button variant="ghost" > */}
-                    <section style={{ padding: "0.75rem" }} className='rounded-lg text-xs flex flex-row items-center justify-center gap-1 transition-all border'>
+                    <section className='py-1 pr-2 rounded-lg text-xs flex flex-row items-center justify-center gap-1 transition-all border'>
 
-                        <p style={{ fontSize: "10px" }} className=''>
+                        <p className='text-xl pl-2'>
                             {/* {currentState ? currentState.name : "Iran"} */}
-                            <ReactCountryFlag  svg countryCode={currentState ? currentState?.flag : "US"} />
+                            <ReactCountryFlag  style={{height: "30px", width: "30px"}} svg countryCode={currentState ? currentState?.flag : "US"} />
                         </p>
-                        <p style={{ fontSize: "10px" }} className=''>
+                        <p  className=''>
                             {currentState ? currentState.code : "+98"}
                         </p>
-                        <SquareChevronDown size={16} strokeWidth={0.5} />
+                        <SquareChevronDown size={26} strokeWidth={0.5} />
                     </section>
                     {/* </Button> */}
                 </AlertDialogTrigger>
